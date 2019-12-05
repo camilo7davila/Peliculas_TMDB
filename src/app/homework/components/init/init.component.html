@@ -1,0 +1,21 @@
+<div class="product-grid">
+    <div class="card" *ngFor="let film of results">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{film.original_title}}</mat-card-title>
+                <mat-card-subtitle><strong>Voto promedio: </strong>{{film.vote_average}}</mat-card-subtitle>
+            </mat-card-header>
+            <div class="crop-image">
+                <img src='https://image.tmdb.org/t/p/w500/{{film.poster_path}}' alt="">
+            </div>
+            <hr>
+            <mat-card-content>
+                <p>{{film.overview | slice:0:100}}...</p>
+            </mat-card-content>
+            <br>
+            <mat-card-actions>
+                <a mat-raised-button [routerLink]="['/home',film.id]">Ver detalle</a>
+            </mat-card-actions> 
+        </mat-card>
+    </div>
+</div>

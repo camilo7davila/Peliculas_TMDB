@@ -1,0 +1,23 @@
+<ng-container *ngIf="(film$ | async) as film">
+    <mat-card>
+        <div class="title">
+            {{film.title}}
+        </div>
+        <div class="container">
+            <figure class="container-image">
+                <img width="300px" height="400px" src="https://image.tmdb.org/t/p/w500/{{film.poster_path}}"
+                    alt="poster path">
+            </figure>
+            <div class="details">
+                <p>
+                    {{film.overview}}
+                </p>
+                <div class="social-container">
+                    <p class="social popularity"><strong>Popularidad:</strong><br> {{film.popularity | percent: '2.0'}}</p>
+                    <p class="social vote-average"><strong>Voto promedio:</strong><br>{{film.vote_average}}</p>
+                    <p class="social language language"><strong>Lenguage:</strong><br> {{film.original_language}}</p>   
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</ng-container>
